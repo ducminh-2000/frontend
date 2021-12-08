@@ -1,3 +1,4 @@
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
@@ -42,6 +43,11 @@ import { AppRoutingModule } from './app.routing';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ChartsModule } from 'ng2-charts';
+import { CongtyComponent } from './views/congty/congty.component';
+import { CreateComponent } from './views/congty/create/create.component';
+import { UpdateComponent } from './views/congty/update/update.component';
+import { FormsModule } from '@angular/forms';
+
 
 @NgModule({
   imports: [
@@ -59,6 +65,8 @@ import { ChartsModule } from 'ng2-charts';
     ChartsModule,
     IconModule,
     IconSetModule.forRoot(),
+    HttpClientModule,
+    FormsModule
   ],
   declarations: [
     AppComponent,
@@ -66,7 +74,10 @@ import { ChartsModule } from 'ng2-charts';
     P404Component,
     P500Component,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    CongtyComponent,
+    CreateComponent,
+    UpdateComponent,
   ],
   providers: [
     {
