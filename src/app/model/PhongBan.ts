@@ -1,5 +1,5 @@
 import { ToaNha } from './ToaNha';
-export interface PhongBan{
+export class PhongBan{
   id?: number;
   ten?: String;
   toaNha?: ToaNha;

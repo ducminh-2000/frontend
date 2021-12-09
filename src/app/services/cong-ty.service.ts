@@ -16,6 +16,10 @@ export class CongTyService {
     return this.httpClient.get<CongTy[]>(`${this.baseUrl}`);
   }
 
+  getPage(index: number): Observable<CongTy[]> {
+    return this.httpClient.get<CongTy[]>(`${this.baseUrl}/index=${index}`);
+  }
+
   create(congTy: CongTy): Observable<Object>{
     return this.httpClient.post(`${this.baseUrl}`,congTy);
   }

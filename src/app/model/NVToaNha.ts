@@ -1,7 +1,7 @@
 import { PhongBan } from './PhongBan';
 import { LuongViTri } from './LuongViTri';
-export interface NVToaNha{
-  id?: number;
+export class NVToaNha{
+  maNv?: number;
   ten?: String;
   ngaySinh?: String;
   diaChi?: String;

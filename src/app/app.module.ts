@@ -47,6 +47,18 @@ import { CongtyComponent } from './views/congty/congty.component';
 import { CreateComponent } from './views/congty/create/create.component';
 import { UpdateComponent } from './views/congty/update/update.component';
 import { FormsModule } from '@angular/forms';
+import { ToanhaComponent } from './views/toanha/toanha.component';
+import { CreatetoanhaComponent } from './views/toanha/createtoanha/createtoanha.component';
+import { UpdatetoanhaComponent } from './views/toanha/updatetoanha/updatetoanha.component';
+import { PhongComponent } from './views/toanha/phong/phong.component';
+import { DichvuComponent } from './views/toanha/dichvu/dichvu.component';
+import { NhanvienComponent } from './views/toanha/nhanvien/nhanvien.component';
+import { BangluongComponent } from './views/toanha/bangluong/bangluong.component';
+import { DichvudasudungComponent } from './views/toanha/dichvudasudung/dichvudasudung.component';
+import { HopdongComponent } from './views/hopdong/hopdong.component';
+import { JwPaginationComponent } from 'jw-angular-pagination';
+import { NhanviencreateComponent } from './views/toanha/nhanvien/nhanviencreate/nhanviencreate.component';
+import { NhanvienupdateComponent } from './views/toanha/nhanvien/nhanvienupdate/nhanvienupdate.component';
 
 
 @NgModule({
@@ -66,7 +78,7 @@ import { FormsModule } from '@angular/forms';
     IconModule,
     IconSetModule.forRoot(),
     HttpClientModule,
-    FormsModule
+    FormsModule,
   ],
   declarations: [
     AppComponent,
@@ -78,6 +90,17 @@ import { FormsModule } from '@angular/forms';
     CongtyComponent,
     CreateComponent,
     UpdateComponent,
+    ToanhaComponent,
+    CreatetoanhaComponent,
+    UpdatetoanhaComponent,
+    PhongComponent,
+    DichvuComponent,
+    NhanvienComponent,
+    BangluongComponent,
+    DichvudasudungComponent,
+    HopdongComponent,
+    NhanviencreateComponent,
+    NhanvienupdateComponent,
   ],
   providers: [
     {

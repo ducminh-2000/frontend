@@ -1,5 +1,5 @@
-export interface LuongViTri{
+export class LuongViTri{
   id?: number;
-  tenViTri?: String;
+  viTri?: String;
   luong?: number;
 }

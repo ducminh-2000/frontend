@@ -30,6 +30,10 @@ export const navItems: INavData[] = [
     name: '1. Tòa nhà',
     children: [
       {
+        name: ' - Danh Sách Tòa Nhà',
+        url: '/toanha',
+      },
+      {
         name: ' - Danh sách phòng',
         url: '/toanha/phong',
       },

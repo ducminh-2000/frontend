@@ -1,38 +1,53 @@
-import { CongTy } from './../../model/CongTy';
+import { NVToaNhaService } from './../../../services/nvtoa-nha.service';
+import { NVToaNha } from './../../../model/NVToaNha';
 import { Component, OnInit } from '@angular/core';
-import { CongTyService } from '../../services/cong-ty.service';
 import { Router } from '@angular/router';
+import { ToaNhaService } from '../../../services/toa-nha.service';
+import { ToaNha } from '../../../model/ToaNha';
 
 @Component({
-  selector: 'app-congty',
-  templateUrl: './congty.component.html',
-  styleUrls: ['./congty.component.scss']
+  selector: 'app-nhanvien',
+  templateUrl: './nhanvien.component.html',
+  styleUrls: ['./nhanvien.component.scss']
 })
-export class CongtyComponent implements OnInit {
-
-  listCongTy: CongTy[];
-  indexPagination: number =1;
-  listNotPaging: any;
+export class NhanvienComponent implements OnInit {
+  listNhanVien: NVToaNha[] ;
+  listNotPaging: NVToaNha[] ;
+  indexPagination: number = 1;
   totalPagination: number;
-
-  constructor(private service: CongTyService, private router: Router) { }
+  listToaNha: ToaNha[] = [];
+  toaNhaId: number;
+  constructor(private service: NVToaNhaService, private router: Router, private toanhaService: ToaNhaService) { }
 
   ngOnInit(): void {
-    this.getCongTy();
+    this.getNhanVien();
+    this.getToaNha()
   }
 
-  private getCongTy(){
+  getToaNha(){
+    this.toanhaService.getAll().subscribe((data) => {
+      this.listToaNha = data;
+    })
+  }
+
+  private getNhanVien(){
+    this.service.getPage(0).subscribe((data) => {
+      this.listNhanVien = data;
+    })
     this.service.getAll().subscribe((data) => {
-      this.listCongTy = data;
+      this.listNotPaging = data;
+      if(this.listNotPaging.length % 10 != 0){
+        this.totalPagination = (Math.round(this.listNotPaging.length / 10)) + 1;
+      }
     })
   }
 
   update(id: Number){
-    this.router.navigate(['/congty/update',id]);
+    this.router.navigate(['/toanha/nhanvien/update',id]);
   }
 
   create(){
-    this.router.navigate(['/congty/create']);
+    this.router.navigate(['/toanha/nhanvien/create']);
   }
 
   handleDelete(id: Number){
@@ -48,63 +63,40 @@ export class CongtyComponent implements OnInit {
     }
   }
 
-  show(id: number){
-    this.router.navigate(['/congty/nhanvien',id]);
-  }
-
   search(key: String){
     this.service.search(key).subscribe((data) => {
-      this.listCongTy = [];
-      this.listCongTy = data;
+      this.listNhanVien = [];
+      this.listNhanVien = data;
       console.log(data);
     },error => {
       alert("Có lỗi xảy ra, mã lỗi: " + error.status);
     })
   }
 
-  filter(key: String){
-    switch (key) {
-      case '1':
-        this.service.filterLessThan(10000000).subscribe((data) => {
-          this.listCongTy = [];
-          this.listCongTy = data;
-        })
-        break;
-      case '2':
-        this.service.filterInRange(10000000,20000000).subscribe((data) => {
-          this.listCongTy = [];
-          this.listCongTy = data;
-        })
-        break;
-      case '3':
-        this.service.filterGreaterThan(20000000).subscribe((data) => {
-          this.listCongTy = [];
-          this.listCongTy = data;
-        })
-        break;
-      case '4':
-        this.getCongTy();
-      default:
-
-        break;
-    }
+  gotoList(){
+    this.router.navigate(['/toanha/nhanvien']);
   }
 
-  gotoList(){
-    this.router.navigate(['/congty']);
+  filterByToaNha(id: number){
+    if(id == 0) this.ngOnInit()
+    this.toaNhaId = id;
+    this.service.getAllInToaNha(id).subscribe((data) => {
+      this.listNhanVien = [];
+      this.listNhanVien = data;
+    })
   }
 
   firstPage(){
     this.indexPagination = 1;
     this.service.getPage(this.indexPagination * 10 - 10).subscribe((data) => {
-      this.listCongTy = data;
+      this.listNhanVien = data;
     })
   }
 
   lastPage(){
     this.indexPagination = (Math.round(this.listNotPaging.length / 10)) + 1;
     this.service.getPage((this.indexPagination * 10) - 10).subscribe((data) => {
-      this.listCongTy = data;
+      this.listNhanVien = data;
     })
   }
 
@@ -114,7 +106,7 @@ export class CongtyComponent implements OnInit {
       this.indexPagination = this.indexPagination - 1;
     }
     this.service.getPage(this.indexPagination * 10 - 10).subscribe((data) => {
-      this.listCongTy = data;
+      this.listNhanVien = data;
     })
   }
 
@@ -125,7 +117,7 @@ export class CongtyComponent implements OnInit {
       this.ngOnInit();
     }else{
       this.service.getPage(this.indexPagination * 10 - 10).subscribe((data) => {
-        this.listCongTy = data;
+        this.listNhanVien = data;
       })
     }
   }

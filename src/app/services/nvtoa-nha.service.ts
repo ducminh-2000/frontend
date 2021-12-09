@@ -16,8 +16,20 @@ export class NVToaNhaService {
     return this.httpClient.get<NVToaNha[]>(`${this.baseUrl}`);
   }
 
-  create(NVToaNha: NVToaNha): Observable<Object>{
-    return this.httpClient.post(`${this.baseUrl}`,NVToaNha);
+  getPage(index: number): Observable<NVToaNha[]>{
+    return this.httpClient.get<NVToaNha[]>(`${this.baseUrl}/index=${index}`);
+  }
+
+  getPageInToaNha(index: number,id:number): Observable<NVToaNha[]>{
+    return this.httpClient.get<NVToaNha[]>(`${this.baseUrl}/toanha=${id}/index=${index}`);
+  }
+
+  getAllInToaNha(id:number): Observable<NVToaNha[]>{
+    return this.httpClient.get<NVToaNha[]>(`${this.baseUrl}/toanha=${id}`);
+  }
+
+  create(nvToaNha: NVToaNha): Observable<Object>{
+    return this.httpClient.post(`${this.baseUrl}`,nvToaNha);
   }
 
   getById(id: Number): Observable<NVToaNha>{
@@ -30,4 +42,8 @@ export class NVToaNhaService {
 
   delete(id: Number): Observable<Object>{
     return this.httpClient.delete(`${this.baseUrl}/${id}`);
-  }}
+  }
+  search(key: String): Observable<NVToaNha[]>{
+    return this.httpClient.get<NVToaNha[]>(`${this.baseUrl}/search=${key}`);
+  }
+}

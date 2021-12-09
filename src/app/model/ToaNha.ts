@@ -1,6 +1,6 @@
-export interface ToaNha{
+export class ToaNha{
   id?: number;
-  ten?: String;
+  name?: String;
   diaChi?: String;
-  moTa?: String;
+  description?: String;
 }

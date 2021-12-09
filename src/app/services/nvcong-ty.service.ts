@@ -16,6 +16,14 @@ export class NVNVCongTyService {
     return this.httpClient.get<NVCongTy[]>(`${this.baseUrl}`);
   }
 
+  getAllByCty(id: number): Observable<NVCongTy[]>{
+    return this.httpClient.get<NVCongTy[]>(`${this.baseUrl}/cty=${id}`)
+  }
+
+  getPage(index: number, id: number): Observable<NVCongTy[]>{
+    return this.httpClient.get<NVCongTy[]>(`${this.baseUrl}/cty=${id}/index=${index}`);
+  }
+
   create(NVCongTy: NVCongTy): Observable<Object>{
     return this.httpClient.post(`${this.baseUrl}`,NVCongTy);
   }
