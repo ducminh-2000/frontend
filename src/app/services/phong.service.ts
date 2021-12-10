@@ -9,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
 export class PhongService {
 
 
-  private baseUrl = "http://localhost:8088/Phong";
+  private baseUrl = "http://localhost:8088/phong";
 
   constructor(private httpClient: HttpClient) { }
 
@@ -17,6 +17,20 @@ export class PhongService {
     return this.httpClient.get<Phong[]>(`${this.baseUrl}`);
   }
 
+  getPage(index: number): Observable<Phong[]>{
+    return this.httpClient.get<Phong[]>(`${this.baseUrl}/index=${index}`);
+  }
+
+  getPageInToaNha(index: number,id:number): Observable<Phong[]>{
+    return this.httpClient.get<Phong[]>(`${this.baseUrl}/toanha=${id}/index=${index}`);
+  }
+
+  getAllInToaNha(id:number): Observable<Phong[]>{
+    return this.httpClient.get<Phong[]>(`${this.baseUrl}/toanha=${id}`);
+  }
+  getByToaNha(id:number): Observable<Phong[]>{
+    return this.httpClient.get<Phong[]>(`${this.baseUrl}/toanha=${id}`)
+  }
   create(Phong: Phong): Observable<Object>{
     return this.httpClient.post(`${this.baseUrl}`,Phong);
   }

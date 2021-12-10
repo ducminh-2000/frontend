@@ -8,12 +8,24 @@ import { Observable } from 'rxjs';
 })
 export class DichVuService {
 
-  private baseUrl = "http://localhost:8088/DichVu";
+  private baseUrl = "http://localhost:8088/dichvu";
 
   constructor(private httpClient: HttpClient) { }
 
   getAll(): Observable<DichVu[]>{
     return this.httpClient.get<DichVu[]>(`${this.baseUrl}`);
+  }
+
+  getPage(index: number): Observable<DichVu[]>{
+    return this.httpClient.get<DichVu[]>(`${this.baseUrl}/index=${index}`);
+  }
+
+  getPageInToaNha(index: number,id:number): Observable<DichVu[]>{
+    return this.httpClient.get<DichVu[]>(`${this.baseUrl}/toanha=${id}/index=${index}`);
+  }
+
+  getAllInToaNha(id:number): Observable<DichVu[]>{
+    return this.httpClient.get<DichVu[]>(`${this.baseUrl}/toanha=${id}`);
   }
 
   create(dichVu: DichVu): Observable<Object>{
@@ -33,7 +45,7 @@ export class DichVuService {
   }
 
   search(key: String): Observable<DichVu[]>{
-    return this.httpClient.get<DichVu[]>(`${this.baseUrl}/query/search=${key}`);
+    return this.httpClient.get<DichVu[]>(`${this.baseUrl}/search=${key}`);
   }
 
   filterInRange(start: Number, end: Number): Observable<DichVu[]>{

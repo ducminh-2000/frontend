@@ -1,27 +1,27 @@
-import { DichVuService } from './../../../services/dich-vu.service';
-import { DichVu } from './../../../model/DichVu';
+import { PhongBanService } from './../../../services/phong-ban.service';
+import { PhongBan } from './../../../model/PhongBan';
 import { Component, OnInit } from '@angular/core';
 import { ToaNha } from '../../../model/ToaNha';
 import { Router } from '@angular/router';
 import { ToaNhaService } from '../../../services/toa-nha.service';
 
 @Component({
-  selector: 'app-dichvu',
-  templateUrl: './dichvu.component.html',
-  styleUrls: ['./dichvu.component.scss']
+  selector: 'app-phongban',
+  templateUrl: './phongban.component.html',
+  styleUrls: ['./phongban.component.scss']
 })
-export class DichvuComponent implements OnInit {
+export class PhongbanComponent implements OnInit {
 
-  listDichVu: DichVu[] ;
-  listNotPaging: DichVu[] ;
+  listPhongBan: PhongBan[] ;
+  listNotPaging: PhongBan[] ;
   indexPagination: number = 1;
   totalPagination: number;
   listToaNha: ToaNha[] = [];
   toaNhaId: number;
-  constructor(private service: DichVuService , private router: Router, private toanhaService: ToaNhaService) { }
+  constructor(private service: PhongBanService , private router: Router, private toanhaService: ToaNhaService) { }
 
   ngOnInit(): void {
-    this.getDichVu();
+    this.getPhongBan();
     this.getToaNha()
   }
 
@@ -31,9 +31,9 @@ export class DichvuComponent implements OnInit {
     })
   }
 
-  private getDichVu(){
+  private getPhongBan(){
     this.service.getPage(0).subscribe((data) => {
-      this.listDichVu = data;
+      this.listPhongBan = data;
     })
     this.service.getAll().subscribe((data) => {
       this.listNotPaging = data;
@@ -44,11 +44,11 @@ export class DichvuComponent implements OnInit {
   }
 
   update(id: Number){
-    this.router.navigate(['/toanha/dichvu/update',id]);
+    this.router.navigate(['/toanha/phongban/update',id]);
   }
 
   create(){
-    this.router.navigate(['/toanha/dichvu/create']);
+    this.router.navigate(['/toanha/phongban/create']);
   }
 
   handleDelete(id: Number){
@@ -66,8 +66,8 @@ export class DichvuComponent implements OnInit {
 
   search(key: String){
     this.service.search(key).subscribe((data) => {
-      this.listDichVu = [];
-      this.listDichVu = data;
+      this.listPhongBan = [];
+      this.listPhongBan = data;
       console.log(data);
     },error => {
       alert("Có lỗi xảy ra, mã lỗi: " + error.status);
@@ -75,56 +75,29 @@ export class DichvuComponent implements OnInit {
   }
 
   gotoList(){
-    this.router.navigate(['/toanha/dichvu']);
+    this.router.navigate(['/toanha/phongban']);
   }
 
   filterByToaNha(id: number){
-    if(id == 0) this.ngOnInit();
+    if(id === 0) this.ngOnInit();
     this.toaNhaId = id;
     this.service.getAllInToaNha(id).subscribe((data) => {
-      this.listDichVu = [];
-      this.listDichVu = data;
+      this.listPhongBan = [];
+      this.listPhongBan = data;
     })
   }
 
-  filter(key: String){
-    switch (key) {
-      case '1':
-        this.service.filterLessThan(100000).subscribe((data) => {
-          this.listDichVu = [];
-          this.listDichVu = data;
-        })
-        break;
-      case '2':
-        this.service.filterInRange(100000,200000).subscribe((data) => {
-          this.listDichVu = [];
-          this.listDichVu = data;
-        })
-        break;
-      case '3':
-        this.service.filterGreaterThan(200000).subscribe((data) => {
-          this.listDichVu = [];
-          this.listDichVu = data;
-        })
-        break;
-      case '4':
-        this.getDichVu();
-      default:
-
-        break;
-    }
-  }
   firstPage(){
     this.indexPagination = 1;
     this.service.getPage(this.indexPagination * 10 - 10).subscribe((data) => {
-      this.listDichVu = data;
+      this.listPhongBan = data;
     })
   }
 
   lastPage(){
     this.indexPagination = (Math.round(this.listNotPaging.length / 10)) + 1;
     this.service.getPage((this.indexPagination * 10) - 10).subscribe((data) => {
-      this.listDichVu = data;
+      this.listPhongBan = data;
     })
   }
 
@@ -134,7 +107,7 @@ export class DichvuComponent implements OnInit {
       this.indexPagination = this.indexPagination - 1;
     }
     this.service.getPage(this.indexPagination * 10 - 10).subscribe((data) => {
-      this.listDichVu = data;
+      this.listPhongBan = data;
     })
   }
 
@@ -145,12 +118,13 @@ export class DichvuComponent implements OnInit {
       this.ngOnInit();
     }else{
       this.service.getPage(this.indexPagination * 10 - 10).subscribe((data) => {
-        this.listDichVu = data;
+        this.listPhongBan = data;
       })
     }
   }
   indexPaginationChage(value: number) {
     this.indexPagination = value;
   }
+
 
 }

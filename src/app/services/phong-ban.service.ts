@@ -17,10 +17,24 @@ export class PhongBanService {
     return this.httpClient.get<PhongBan[]>(`${this.baseUrl}`);
   }
 
+  getPage(index: number): Observable<PhongBan[]>{
+    return this.httpClient.get<PhongBan[]>(`${this.baseUrl}/index=${index}`);
+  }
+
+  getPageInToaNha(index: number,id:number): Observable<PhongBan[]>{
+    return this.httpClient.get<PhongBan[]>(`${this.baseUrl}/toanha=${id}/index=${index}`);
+  }
+
+  getAllInToaNha(id:number): Observable<PhongBan[]>{
+    return this.httpClient.get<PhongBan[]>(`${this.baseUrl}/toanha=${id}`);
+  }
   getByToaNha(id:number): Observable<PhongBan[]>{
     return this.httpClient.get<PhongBan[]>(`${this.baseUrl}/toanha=${id}`)
   }
 
+  search(key: String): Observable<PhongBan[]>{
+    return this.httpClient.get<PhongBan[]>(`${this.baseUrl}/search=${key}`);
+  }
   create(PhongBan: PhongBan): Observable<Object>{
     return this.httpClient.post(`${this.baseUrl}`,PhongBan);
   }

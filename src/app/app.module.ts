@@ -21,8 +21,7 @@ import { DefaultLayoutComponent } from './containers';
 
 import { P404Component } from './views/error/404.component';
 import { P500Component } from './views/error/500.component';
-import { LoginComponent } from './views/login/login.component';
-import { RegisterComponent } from './views/register/register.component';
+
 
 const APP_CONTAINERS = [
   DefaultLayoutComponent
@@ -59,6 +58,13 @@ import { HopdongComponent } from './views/hopdong/hopdong.component';
 import { JwPaginationComponent } from 'jw-angular-pagination';
 import { NhanviencreateComponent } from './views/toanha/nhanvien/nhanviencreate/nhanviencreate.component';
 import { NhanvienupdateComponent } from './views/toanha/nhanvien/nhanvienupdate/nhanvienupdate.component';
+import { CreatedichvuComponent } from './views/toanha/dichvu/createdichvu/createdichvu.component';
+import { UpdatedichvuComponent } from './views/toanha/dichvu/updatedichvu/updatedichvu.component';
+import { UpdatephongComponent } from './views/toanha/phong/updatephong/updatephong.component';
+import { CreatephongComponent } from './views/toanha/phong/createphong/createphong.component';
+import { PhongbanComponent } from './views/toanha/phongban/phongban.component';
+import { CreatephongbanComponent } from './views/toanha/phongban/createphongban/createphongban.component';
+import { UpdatephongbanComponent } from './views/toanha/phongban/updatephongban/updatephongban.component';
 
 
 @NgModule({
@@ -85,8 +91,6 @@ import { NhanvienupdateComponent } from './views/toanha/nhanvien/nhanvienupdate/
     ...APP_CONTAINERS,
     P404Component,
     P500Component,
-    LoginComponent,
-    RegisterComponent,
     CongtyComponent,
     CreateComponent,
     UpdateComponent,
@@ -101,6 +105,13 @@ import { NhanvienupdateComponent } from './views/toanha/nhanvien/nhanvienupdate/
     HopdongComponent,
     NhanviencreateComponent,
     NhanvienupdateComponent,
+    CreatedichvuComponent,
+    UpdatedichvuComponent,
+    UpdatephongComponent,
+    CreatephongComponent,
+    PhongbanComponent,
+    CreatephongbanComponent,
+    UpdatephongbanComponent,
   ],
   providers: [
     {

@@ -1,40 +1,35 @@
+import { DichVu } from './../../../../model/DichVu';
+import { DichVuService } from './../../../../services/dich-vu.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { LuongViTri } from '../../../../model/LuongViTri';
-import { NVToaNha } from '../../../../model/NVToaNha';
-import { PhongBan } from '../../../../model/PhongBan';
-import { ToaNha } from '../../../../model/ToaNha';
-import { LuongViTriService } from '../../../../services/luong-vi-tri.service';
-import { NVToaNhaService } from '../../../../services/nvtoa-nha.service';
-import { PhongBanService } from '../../../../services/phong-ban.service';
 import { ToaNhaService } from '../../../../services/toa-nha.service';
+import { PhongBanService } from '../../../../services/phong-ban.service';
+import { ToaNha } from '../../../../model/ToaNha';
+import { PhongBan } from '../../../../model/PhongBan';
 
 @Component({
-  selector: 'app-nhanvienupdate',
-  templateUrl: './nhanvienupdate.component.html',
-  styleUrls: ['./nhanvienupdate.component.scss']
+  selector: 'app-updatedichvu',
+  templateUrl: './updatedichvu.component.html',
+  styleUrls: ['./updatedichvu.component.scss']
 })
-export class NhanvienupdateComponent implements OnInit {
+export class UpdatedichvuComponent implements OnInit {
 
-  constructor(private service: NVToaNhaService,
+  constructor(private service: DichVuService,
     private route: ActivatedRoute,
     private router: Router,
     private toaNha: ToaNhaService,
-    private phongBan: PhongBanService,
-    private luongvitri: LuongViTriService) { }
-  nhanvien: NVToaNha = new NVToaNha();
+    private phongBan: PhongBanService) { }
+  dichVu: DichVu = new DichVu();
   listToaNha: ToaNha[] = [];
   listPhongBan: PhongBan[] = [];
-  listLuongVT: LuongViTri[] = [];
   id: number;
   tn: ToaNha;
 
   ngOnInit(): void {
     this.getToaNha();
-    this.getViTri();
     this.id = this.route.snapshot.params['id'];
     this.service.getById(this.id).subscribe((data) => {
-      this.nhanvien = data;
+      this.dichVu = data;
     })
     this.getAllPhongBan()
   }
@@ -56,13 +51,8 @@ export class NhanvienupdateComponent implements OnInit {
       this.listPhongBan = data;
     })
   }
-  getViTri(){
-    this.luongvitri.getAll().subscribe((data) =>{
-      this.listLuongVT = data;
-    })
-  }
   onSubmit(){
-    this.service.update(this.id,this.nhanvien).subscribe((data) => {
+    this.service.update(this.id,this.dichVu).subscribe((data) => {
       alert("Update thành công bản ghi");
       this.gotoList();
     }, error => {
@@ -73,8 +63,7 @@ export class NhanvienupdateComponent implements OnInit {
     this.gotoList();
   }
   gotoList(){
-    this.router.navigate(['/toanha/nhanvien']);
+    this.router.navigate(['/toanha/dichvu']);
   }
-
 
 }

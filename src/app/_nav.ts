@@ -41,6 +41,10 @@ export const navItems: INavData[] = [
         name: ' - Danh Sách phòng đã cho thuê',
         url: '/toanha/phongsudung',
       },
+      {
+        name: ' - Danh Sách phòng ban',
+        url: '/toanha/phongban',
+      },
     ]
   },
   {

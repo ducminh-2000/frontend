@@ -1,8 +1,8 @@
 import { PhongBan } from "./PhongBan";
-export interface DichVu{
+export class DichVu{
   id?: number;
-  ten?: String;
-  loai?: String;
+  tenDv?: String;
+  loaiDv?: String;
   donGia?: String;
   phongBan?: PhongBan;
 }

@@ -19,6 +19,13 @@ import { DichvudasudungComponent } from './views/toanha/dichvudasudung/dichvudas
 import { HopdongComponent } from './views/hopdong/hopdong.component';
 import { NhanviencreateComponent } from './views/toanha/nhanvien/nhanviencreate/nhanviencreate.component';
 import { NhanvienupdateComponent } from './views/toanha/nhanvien/nhanvienupdate/nhanvienupdate.component';
+import { CreatedichvuComponent } from './views/toanha/dichvu/createdichvu/createdichvu.component';
+import { UpdatedichvuComponent } from './views/toanha/dichvu/updatedichvu/updatedichvu.component';
+import { PhongbanComponent } from './views/toanha/phongban/phongban.component';
+import { CreatephongbanComponent } from './views/toanha/phongban/createphongban/createphongban.component';
+import { UpdatephongbanComponent } from './views/toanha/phongban/updatephongban/updatephongban.component';
+import { CreatephongComponent } from './views/toanha/phong/createphong/createphong.component';
+import { UpdatephongComponent } from './views/toanha/phong/updatephong/updatephong.component';
 
 export const routes: Routes = [
   {
@@ -125,8 +132,36 @@ export const routes: Routes = [
             }
           },
           {
+            path: 'phong/create',
+            component: CreatephongComponent,
+            data: {
+              title: 'Phòng'
+            }
+          },
+          {
+            path: 'phong/update/:id',
+            component: UpdatephongComponent,
+            data: {
+              title: 'Phòng'
+            }
+          },
+          {
             path: 'dichvu',
             component: DichvuComponent,
+            data: {
+              title: 'Dịch Vụ'
+            }
+          },
+          {
+            path: 'dichvu/create',
+            component: CreatedichvuComponent,
+            data: {
+              title: 'Dịch Vụ'
+            }
+          },
+          {
+            path: 'dichvu/update/:id',
+            component: UpdatedichvuComponent,
             data: {
               title: 'Dịch Vụ'
             }
@@ -151,6 +186,27 @@ export const routes: Routes = [
             data: {
               title: 'Update Nhân Viên Tòa Nhà'
             }
+          },
+          {
+            path: 'phongban',
+            component: PhongbanComponent,
+            data: {
+              title: 'Phòng ban'
+            },
+          },
+          {
+            path: 'phongban/create',
+            component: CreatephongbanComponent,
+            data: {
+              title: 'CreatePhòng ban'
+            },
+          },
+          {
+            path: 'phongban/update/:id',
+            component: UpdatephongbanComponent,
+            data: {
+              title: 'Update Phòng ban'
+            },
           },
           {
             path: 'thongke',

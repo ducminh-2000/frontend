@@ -1,8 +1,8 @@
 import { ToaNha } from './ToaNha';
-export interface Phong{
+export class Phong{
   id?: number;
-  ten?: String;
+  name?: String;
   dienTich?: String;
-  gia?: number;
+  price?: number;
   toaNha?: ToaNha;
 }
