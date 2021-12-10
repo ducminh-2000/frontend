@@ -65,6 +65,12 @@ import { CreatephongComponent } from './views/toanha/phong/createphong/createpho
 import { PhongbanComponent } from './views/toanha/phongban/phongban.component';
 import { CreatephongbanComponent } from './views/toanha/phongban/createphongban/createphongban.component';
 import { UpdatephongbanComponent } from './views/toanha/phongban/updatephongban/updatephongban.component';
+import { UpdatenhanvienComponent } from './views/congty/nhanviencongty/updatenhanvien/updatenhanvien.component';
+import { CreatenhanvienComponent } from './views/congty/nhanviencongty/createnhanvien/createnhanvien.component';
+import { SwitchComponent } from './views/congty/nhanviencongty/switch/switch.component';
+import { NhanviencongtyComponent } from './views/congty/nhanviencongty/nhanviencongty.component';
+import { GhichuComponent } from './views/toanha/nhanvien/ghichu/ghichu.component';
+import { GhichucreateComponent } from './views/toanha/nhanvien/ghichucreate/ghichucreate.component';
 
 
 @NgModule({
@@ -112,6 +118,12 @@ import { UpdatephongbanComponent } from './views/toanha/phongban/updatephongban/
     PhongbanComponent,
     CreatephongbanComponent,
     UpdatephongbanComponent,
+    UpdatenhanvienComponent,
+    CreatenhanvienComponent,
+    SwitchComponent,
+    NhanviencongtyComponent,
+    GhichuComponent,
+    GhichucreateComponent,
   ],
   providers: [
     {

@@ -16,7 +16,7 @@ export const navItems: INavData[] = [
   },
   {
     name: '2. Nhân viên công ty',
-    url: '/congty/nhanvien',
+    url: '/congty/switch',
   },
   {
     name: '3. Hợp đồng cho thuê',

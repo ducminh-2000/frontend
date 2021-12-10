@@ -16,6 +16,13 @@ export class GhiChuService {
     return this.httpClient.get<GhiChu[]>(`${this.baseUrl}`);
   }
 
+  getAllByNV(id: number): Observable<GhiChu[]>{
+    return this.httpClient.get<GhiChu[]>(`${this.baseUrl}/nv=${id}`)
+  }
+
+  getPage(index: number, id: number): Observable<GhiChu[]>{
+    return this.httpClient.get<GhiChu[]>(`${this.baseUrl}/nv=${id}/index=${index}`);
+  }
   create(ghiChu: GhiChu): Observable<Object>{
     return this.httpClient.post(`${this.baseUrl}`, ghiChu);
   }
@@ -30,4 +37,9 @@ export class GhiChuService {
 
   delete(id: Number): Observable<Object>{
     return this.httpClient.delete(`${this.baseUrl}/${id}`);
-  }}
+  }
+
+  search(id: number, key: String): Observable<GhiChu[]>{
+    return this.httpClient.get<GhiChu[]>(`${this.baseUrl}/nv=${id}/search=${key}`)
+  }
+}

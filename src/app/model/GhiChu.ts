@@ -1,5 +1,5 @@
 import { NVToaNha } from './NVToaNha';
-export interface GhiChu{
+export class GhiChu{
   id?: number;
   ngayTao?: String;
   lyDo?: String;

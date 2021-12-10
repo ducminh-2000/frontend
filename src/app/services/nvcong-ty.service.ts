@@ -39,4 +39,8 @@ export class NVNVCongTyService {
   delete(id: Number): Observable<Object>{
     return this.httpClient.delete(`${this.baseUrl}/${id}`);
   }
+
+  search(id: number, key: String): Observable<NVCongTy[]>{
+    return this.httpClient.get<NVCongTy[]>(`${this.baseUrl}/cty=${id}/search=${key}`)
+  }
 }

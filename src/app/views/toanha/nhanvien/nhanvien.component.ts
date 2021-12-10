@@ -110,6 +110,9 @@ export class NhanvienComponent implements OnInit {
     })
   }
 
+  handleNote(id: number){
+    this.router.navigate([`/toanha/nhanvien/${id}/ghichu/`]);
+  }
   previousPage(){
     this.indexPagination = this.indexPagination - 1;
     if(this.indexPagination == 0){

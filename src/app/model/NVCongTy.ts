@@ -1,5 +1,5 @@
 import { CongTy } from './CongTy';
-export interface NVCongTy{
+export class NVCongTy{
   id?: number;
   cmt?: String;
   sdt?: String;

@@ -26,6 +26,12 @@ import { CreatephongbanComponent } from './views/toanha/phongban/createphongban/
 import { UpdatephongbanComponent } from './views/toanha/phongban/updatephongban/updatephongban.component';
 import { CreatephongComponent } from './views/toanha/phong/createphong/createphong.component';
 import { UpdatephongComponent } from './views/toanha/phong/updatephong/updatephong.component';
+import { UpdatenhanvienComponent } from './views/congty/nhanviencongty/updatenhanvien/updatenhanvien.component';
+import { CreatenhanvienComponent } from './views/congty/nhanviencongty/createnhanvien/createnhanvien.component';
+import { SwitchComponent } from './views/congty/nhanviencongty/switch/switch.component';
+import { NhanviencongtyComponent } from './views/congty/nhanviencongty/nhanviencongty.component';
+import { GhichuComponent } from './views/toanha/nhanvien/ghichu/ghichu.component';
+import { GhichucreateComponent } from './views/toanha/nhanvien/ghichucreate/ghichucreate.component';
 
 export const routes: Routes = [
   {
@@ -54,25 +60,32 @@ export const routes: Routes = [
             component: CongtyComponent,
           },
           {
-            path: 'nhanvien/:id',
+            path: 'switch',
+            data: {
+              title: 'Chọn công ty'
+            },
+            component: SwitchComponent,
+          },
+          {
+            path: ':id/nhanvien',
             data: {
               title: 'Nhân viên công ty'
             },
-            component: CongtyComponent,
+            component: NhanviencongtyComponent,
           },
           {
-            path: 'nhanvien/:id/create',
+            path: ':id/nhanvien/create',
             data: {
               title: 'create nhân viên công ty'
             },
-            component: CongtyComponent,
+            component: CreatenhanvienComponent,
           },
           {
-            path: 'nhanvien/:id/update/:id',
+            path: ':id/nhanvien/update/:id',
             data: {
               title: 'Update nhân viên công ty'
             },
-            component: CongtyComponent,
+            component: UpdatenhanvienComponent,
           },
           {
             path: 'create',
@@ -186,6 +199,20 @@ export const routes: Routes = [
             data: {
               title: 'Update Nhân Viên Tòa Nhà'
             }
+          },
+          {
+            path: 'nhanvien/:id/ghichu',
+            component: GhichuComponent,
+            data: {
+              title: 'Ghi chu'
+            },
+          },
+          {
+            path: 'nhanvien/:id/ghichu/create',
+            component: GhichucreateComponent,
+            data: {
+              title: 'Ghi chu'
+            },
           },
           {
             path: 'phongban',
