@@ -1,0 +1,20 @@
+<div class="animated fadeIn">
+  <div class="row" style="display: block;">
+    <div class="card">
+      <div class="card-header">
+        <form (ngSubmit)="onSubmit()" class="form-horizontal">
+          <select [(ngModel)]="ct" [ngModelOptions]="{standalone: true}">
+            <!-- <option selected>Tòa nhà</option> -->
+            <option *ngFor="let congTy of listCongTy" [(ngValue)]="congTy.maToaNha">{{congTy.name}}</option>
+          </select>
+          <div class="card-footer">
+            <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Submit</button>
+            <button type="reset" class="btn btn-sm btn-danger"><i class="fa fa-ban"></i> Reset</button>
+            <button class="btn btn-sm btn-success" (click)="back()">Hủy</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- </div> -->
+</div>

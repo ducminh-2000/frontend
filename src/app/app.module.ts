@@ -71,6 +71,9 @@ import { SwitchComponent } from './views/congty/nhanviencongty/switch/switch.com
 import { NhanviencongtyComponent } from './views/congty/nhanviencongty/nhanviencongty.component';
 import { GhichuComponent } from './views/toanha/nhanvien/ghichu/ghichu.component';
 import { GhichucreateComponent } from './views/toanha/nhanvien/ghichucreate/ghichucreate.component';
+import { SwitchtoanhaComponent } from './views/toanha/bangluong/switchtoanha/switchtoanha.component';
+import { LuongdetailComponent } from './views/toanha/bangluong/luongdetail/luongdetail.component';
+import { LuongvitriComponent } from './views/toanha/bangluong/luongvitri/luongvitri.component';
 
 
 @NgModule({
@@ -124,6 +127,9 @@ import { GhichucreateComponent } from './views/toanha/nhanvien/ghichucreate/ghic
     NhanviencongtyComponent,
     GhichuComponent,
     GhichucreateComponent,
+    SwitchtoanhaComponent,
+    LuongdetailComponent,
+    LuongvitriComponent,
   ],
   providers: [
     {

@@ -4,4 +4,5 @@ export class GhiChu{
   ngayTao?: String;
   lyDo?: String;
   nhanVien?: NVToaNha;
+  status?: String;
 }

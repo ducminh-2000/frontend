@@ -30,7 +30,7 @@
             <label class="col-sm-5 col-form-label" for="input-normal">Chi nhánh</label>
             <div class="col-sm-6">
               <select [(ngModel)]="phongBan.toaNha" [ngModelOptions]="{standalone: true}">
-                <option>Toa Nha</option>
+                <option [ngValue]="phongBan.toaNha" selected>{{phongBan.toaNha.name}}</option>
                 <option *ngFor="let toanha of listToaNha" [ngValue]="toanha">{{toanha.name}}</option>
               </select>
             </div>

@@ -1,4 +1,4 @@
 import { NVToaNha } from './NVToaNha';
-export interface TKLuong extends NVToaNha{
+export class TKLuong extends NVToaNha{
   luong?: number;
 }

@@ -13,6 +13,12 @@
               <input type="text" readonly id="input-normal" name="tenCongTy" class="form-control" [(ngModel)]="note.nhanVien.ten">
             </div>
           </div>
+          <div class="form-group row" style="display:hide">
+            <!-- <label class="col-sm-5 col-form-label" for="input-normal">Nhân viên</label> -->
+            <div class="col-sm-6">
+              <input hidden type="text" readonly id="input-normal" name="tenCong" class="form-control" [(ngModel)]="note.nhanVien">
+            </div>
+          </div>
           <div class="form-group row">
             <label class="col-sm-5 col-form-label" for="input-normal">Lý do</label>
             <div class="col-sm-6">
@@ -23,6 +29,12 @@
             <label class="col-sm-5 col-form-label" for="input-normal">Ngày tạo</label>
             <div class="col-sm-6">
               <input type="date" id="input-normal" name="vonDieuLe" class="form-control" [(ngModel)]="note.ngayTao">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-sm-5 col-form-label" for="input-normal">Trạng thái</label>
+            <div class="col-sm-6">
+              <input type="text" id="input-normal" name="vonDie" class="form-control" [(ngModel)]="note.status">
             </div>
           </div>
           <div class="card-footer">

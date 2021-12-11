@@ -71,7 +71,7 @@ export const navItems: INavData[] = [
       },
       {
         name: ' - Bảng lương',
-        url: '/toanha/thongke',
+        url: '/toanha/switch',
       },
     ]
   }

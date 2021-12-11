@@ -32,6 +32,8 @@ import { SwitchComponent } from './views/congty/nhanviencongty/switch/switch.com
 import { NhanviencongtyComponent } from './views/congty/nhanviencongty/nhanviencongty.component';
 import { GhichuComponent } from './views/toanha/nhanvien/ghichu/ghichu.component';
 import { GhichucreateComponent } from './views/toanha/nhanvien/ghichucreate/ghichucreate.component';
+import { SwitchtoanhaComponent } from './views/toanha/bangluong/switchtoanha/switchtoanha.component';
+import { LuongdetailComponent } from './views/toanha/bangluong/luongdetail/luongdetail.component';
 
 export const routes: Routes = [
   {
@@ -236,10 +238,24 @@ export const routes: Routes = [
             },
           },
           {
-            path: 'thongke',
+            path: 'switch',
+            component: SwitchtoanhaComponent,
+            data: {
+              title: 'Chọn tòa nhà'
+            }
+          },
+          {
+            path: ':id/bangluong',
             component: BangluongComponent,
             data: {
-              title: 'Bảng lương'
+              title: 'Bảng lương theo tòa nhà'
+            }
+          },
+          {
+            path: ':id/bangluong/:id',
+            component: LuongdetailComponent,
+            data: {
+              title: 'Chi tiết lương nhân viên'
             }
           },
           {
