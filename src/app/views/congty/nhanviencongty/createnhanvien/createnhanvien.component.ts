@@ -26,8 +26,12 @@ export class CreatenhanvienComponent implements OnInit {
     this.service.getAll().subscribe((data) => {
       this.listCongTy = data;
     })
+    this.service.getById(this.idCty).subscribe((data) => {
+      this.nv.congTy = data;
+    } )
   }
   onSubmit(){
+    // this.nv.congTy.id = this.idCty;
     this.nvService.create(this.nv).subscribe((data) => {
       console.log(data)
       alert("Thêm thành công bản ghi");

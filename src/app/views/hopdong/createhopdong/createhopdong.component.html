@@ -115,6 +115,8 @@
             <label class="col-sm-5 col-form-label" for="input-normal">Cơ Sở</label>
             <div class="col-sm-6">
               <select (change)="getData($event.target.value)">
+                <option >Cơ sở</option>
+
                 <option *ngFor="let toaNha of listToaNha" value={{toaNha.maToaNha}}>{{toaNha.name}}</option>
               </select>
             </div>
