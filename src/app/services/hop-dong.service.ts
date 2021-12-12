@@ -16,16 +16,26 @@ export class HopDongService {
     return this.httpClient.get<HopDong[]>(`${this.baseUrl}`);
   }
 
+  getAllByToaNha(id:number): Observable<HopDong[]>{
+    return this.httpClient.get<HopDong[]>(`${this.baseUrl}/toanha=${id}`)
+  }
+
+  search(id:number,index: Date): Observable<HopDong[]>{
+    return this.httpClient.get<HopDong[]>(`${this.baseUrl}/toanha=${id}/search=${index}`)
+  }
+  getPage(id:number,index:number): Observable<HopDong[]>{
+    return this.httpClient.get<HopDong[]>(`${this.baseUrl}/toanha=${id}/index=${index}`)
+  }
   create(hopDong: HopDong): Observable<Object>{
     return this.httpClient.post(`${this.baseUrl}`, hopDong);
   }
 
   getById(id: Number): Observable<HopDong>{
-    return this.httpClient.get(`${this.baseUrl}/${id}`);
+    return this.httpClient.get<HopDong>(`${this.baseUrl}/${id}`);
   }
 
   update(id: Number, hopDong: HopDong): Observable<HopDong>{
-    return this.httpClient.put(`${this.baseUrl}/${id}`, hopDong);
+    return this.httpClient.put<HopDong>(`${this.baseUrl}/${id}`, hopDong);
   }
 
   delete(id: Number): Observable<Object>{

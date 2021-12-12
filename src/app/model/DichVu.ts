@@ -3,6 +3,6 @@ export class DichVu{
   id?: number;
   tenDv?: String;
   loaiDv?: String;
-  donGia?: String;
+  donGia?: number;
   phongBan?: PhongBan;
 }

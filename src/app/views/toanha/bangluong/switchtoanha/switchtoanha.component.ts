@@ -1,3 +1,5 @@
+import { PhongBanService } from './../../../../services/phong-ban.service';
+import { PhongBan } from './../../../../model/PhongBan';
 import { ToaNha } from './../../../../model/ToaNha';
 import { Component, OnInit } from '@angular/core';
 import { ToaNhaService } from '../../../../services/toa-nha.service';
@@ -10,11 +12,14 @@ import { Router } from '@angular/router';
 })
 export class SwitchtoanhaComponent implements OnInit {
   listCongTy: ToaNha[];
-  ct: ToaNha = new ToaNha();
-  constructor(private service: ToaNhaService, private router: Router) { }
+  listPhongBan: PhongBan[];
+
+  toaNha: number;
+  phong: number;
+  constructor(private service: ToaNhaService, private pbs:PhongBanService , private router: Router) { }
 
   ngOnInit(): void {
-    this.getCongTy()
+    this.getCongTy();
   }
 
   getCongTy(){
@@ -23,9 +28,14 @@ export class SwitchtoanhaComponent implements OnInit {
     })
   }
 
+  getPhongBan(id: number){
+    this.pbs.getAllInToaNha(id).subscribe((data) => {
+      this.listPhongBan = data;
+    })
+  }
   onSubmit(){
-    console.log(this.ct)
-    this.router.navigate([`/toanha/${this.ct}/bangluong`])
+    console.log(this.toaNha)
+    this.router.navigate([`/toanha/${this.toaNha}/bangluong/phongban/${this.phong}`])
   }
 
   back(){

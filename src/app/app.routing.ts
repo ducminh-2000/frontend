@@ -34,6 +34,9 @@ import { GhichuComponent } from './views/toanha/nhanvien/ghichu/ghichu.component
 import { GhichucreateComponent } from './views/toanha/nhanvien/ghichucreate/ghichucreate.component';
 import { SwitchtoanhaComponent } from './views/toanha/bangluong/switchtoanha/switchtoanha.component';
 import { LuongdetailComponent } from './views/toanha/bangluong/luongdetail/luongdetail.component';
+import { SwitchhopdongComponent } from './views/hopdong/switchhopdong/switchhopdong.component';
+import { CreatehopdongComponent } from './views/hopdong/createhopdong/createhopdong.component';
+import { UpdatehopdongComponent } from './views/hopdong/updatehopdong/updatehopdong.component';
 
 export const routes: Routes = [
   {
@@ -106,10 +109,31 @@ export const routes: Routes = [
         ]
       },
       {
-        path: 'hopdong',
+        path: 'hopdong/switch',
+        component: SwitchhopdongComponent,
+        data: {
+          title: 'Hợp đồng'
+        }
+      },
+      {
+        path: 'hopdong/toanha/:id',
         component: HopdongComponent,
         data: {
           title: 'Hợp đồng'
+        }
+      },
+      {
+        path: 'hopdong/toanha/:id/create/',
+        component: CreatehopdongComponent,
+        data: {
+          title: 'Create Hợp đồng'
+        }
+      },
+      {
+        path: 'hopdong/toanha/:id/update/:id',
+        component: UpdatehopdongComponent,
+        data: {
+          title: 'Update Hợp đồng'
         }
       },
       {
@@ -245,7 +269,7 @@ export const routes: Routes = [
             }
           },
           {
-            path: ':id/bangluong',
+            path: ':id/bangluong/phongban/:id',
             component: BangluongComponent,
             data: {
               title: 'Bảng lương theo tòa nhà'

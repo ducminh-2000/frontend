@@ -19,10 +19,6 @@ export const navItems: INavData[] = [
     url: '/congty/switch',
   },
   {
-    name: '3. Hợp đồng cho thuê',
-    url: '/hopdong/',
-  },
-  {
     title: true,
     name: 'Quản lý toàn nhà'
   },
@@ -38,10 +34,6 @@ export const navItems: INavData[] = [
         url: '/toanha/phong',
       },
       {
-        name: ' - Danh Sách phòng đã cho thuê',
-        url: '/toanha/phongsudung',
-      },
-      {
         name: ' - Danh Sách phòng ban',
         url: '/toanha/phongban',
       },
@@ -54,10 +46,6 @@ export const navItems: INavData[] = [
       {
         name: ' - Danh Sách Dịch Vụ',
         url: '/toanha/dichvu',
-      },
-      {
-        name: ' - Dịch Vụ Đã sử dụng',
-        url: '/toanha/dichvusudung',
       },
     ]
   },
@@ -74,5 +62,9 @@ export const navItems: INavData[] = [
         url: '/toanha/switch',
       },
     ]
-  }
+  },
+  {
+    name: '4. Hợp đồng cho thuê',
+    url: '/hopdong/switch',
+  },
 ];

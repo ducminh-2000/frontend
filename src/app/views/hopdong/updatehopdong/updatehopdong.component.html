@@ -1,0 +1,190 @@
+<div class="animated fadeIn">
+  <ng-template id="1" #content1 let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">
+        Tạo phòng sử dụng
+      </h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">
+          ×
+        </span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form class="form-horizontal">
+        <div class="form-group row">
+          <label class="col-sm-5 col-form-label" for="input-normal">Tên Phòng</label>
+          <div class="col-sm-6">
+            <select [(ngModel)]="phongsd.phong" [ngModelOptions]="{standalone: true}">
+              <option *ngFor="let phong of listPhong" [ngValue]="phong">{{phong.name}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-5 col-form-label" for="input-normal">Giảm giá</label>
+          <div class="col-sm-6">
+            <input required type="number" id="input-normal" name="maSoThue" class="form-control" [(ngModel)]="phongsd.giamGia">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-5 col-form-label" for="input-normal">Ghi chú</label>
+          <div class="col-sm-6">
+            <input required type="text" id="input-normal" name="vonDieuLe" class="form-control" [(ngModel)]="phongsd.ghiChu">
+          </div>
+        </div>
+        <!-- <div class="form-group row">
+          <label class="col-sm-5 col-form-label" for="input-normal">Ngày bắt đầu sử dụng</label>
+          <div class="col-sm-6">
+            <input required type="date" id="input-normal" name="linhVuc" class="form-control" [(ngModel)]="phongsd.ngayBatDau">
+          </div>
+        </div> -->
+        <!-- <div class="card-footer">
+          <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Submit</button>
+          <button type="reset" class="btn btn-sm btn-danger"><i class="fa fa-ban"></i> Reset</button>
+          <button class="btn btn-sm btn-success" (click)="back()">Hủy</button>
+        </div> -->
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="addPhongSuDung(modal)">
+        Save
+      </button>
+    </div>
+  </ng-template>
+  <ng-template id="2" #content2 let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">
+        Thêm dịch vụ sử dụng
+      </h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">
+          ×
+        </span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form class="form-horizontal">
+        <div class="form-group row">
+          <label class="col-sm-5 col-form-label" for="input-normal">Dịch vụ</label>
+          <div class="col-sm-6">
+            <select [(ngModel)]="dvsd.dichVu" [ngModelOptions]="{standalone: true}">
+              <option *ngFor="let dv of listDichVu" [ngValue]="dv">{{dv.loaiDv + "----" + dv.tenDv}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-5 col-form-label" for="input-normal">Giảm giá</label>
+          <div class="col-sm-6">
+            <input required type="number" id="input-normal" name="maSoThue" class="form-control" [(ngModel)]="dvsd.giamGia">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-5 col-form-label" for="input-normal">Số lượng</label>
+          <div class="col-sm-6">
+            <input required type="number" id="input-normal" name="linhVuc" class="form-control" [(ngModel)]="dvsd.soLuong">
+          </div>
+        </div>
+        <!-- <div class="form-group row">
+          <label class="col-sm-5 col-form-label" for="input-normal">Giá</label>
+          <div class="col-sm-6">
+            <input required type="number" readonly id="input-normal" name="vonDieuLe" class="form-control" [(ngModel)]="dvsd.gia">
+          </div>
+        </div> -->
+        <!-- <div class="card-footer">
+          <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Submit</button>
+          <button type="reset" class="btn btn-sm btn-danger"><i class="fa fa-ban"></i> Reset</button>
+          <button class="btn btn-sm btn-success" (click)="back()">Hủy</button>
+        </div> -->
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="addDichVuSuDung(modal)">
+        Save
+      </button>
+    </div>
+  </ng-template>
+  <div class="row" style="display: block;">
+    <!-- <div class="col-sm-6"> -->
+    <div class="card">
+      <div class="card-header">
+        <strong>Update Hợp đồng</strong>
+      </div>
+      <div class="card-body">
+        <form (ngSubmit)="onSubmit()" class="form-horizontal">
+          <div class="form-group row" >
+            <label class="col-sm-5 col-form-label" for="input-normal">Cơ Sở</label>
+            <div class="col-sm-6">
+
+                <input value={{hopDong.toaNha.name}}/>
+
+            </div>
+          </div>
+          <div class="form-group row" *ngIf="listCongTy != null">
+            <label class="col-sm-5 col-form-label" for="input-normal">Công ty</label>
+            <div class="col-sm-6">
+              <select [(ngModel)]="hopDong.congTy" [ngModelOptions]="{standalone: true}">
+                <option [ngValue]="hopDong.congTy">{{hopDong.congTy.tenCongTy}}</option>
+                <option *ngFor="let congTy of listCongTy" [ngValue]="congTy">{{congTy.tenCongTy}}</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-sm-5 col-form-label" for="input-normal">Ngày tạo</label>
+            <div class="col-sm-6">
+              <input required type="text" data-date-format="YYYY-mm-dd" id="input-normal" name="voie" class="form-control" [(ngModel)]="hopDong.ngayTao">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-sm-5 col-form-label" for="input-normal">Ngày hết hạn</label>
+            <div class="col-sm-6">
+              <input required  type="text" id="input-normal" name="voDie" class="form-control" [(ngModel)]="hopDong.ngayHetHan">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-sm-5 col-form-label" for="input-normal">Phòng sử dụng</label>
+            <div class="col-sm-6" style="display: flex;">
+              <div class="col-sm-6">
+                <a (click)="open(content1)" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i>
+                  Add</a>
+              </div>
+              <div style="width:fit-content" *ngFor="let psd of listPhongCurent" >
+                <div>
+                <span class="btn bt-sm" style="background-color: darkgrey;">{{psd.name}}</span>
+                <button type="button" class="btn btn-sm btn-danger" aria-label="Close" (click)="removePhong(psd)">
+                  <span aria-hidden="true">
+                    ×
+                  </span>
+                </button>
+              </div></div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-sm-5 col-form-label" for="input-normal">Dịch vụ sử dụng</label>
+            <div class="col-sm-6" style="display: flex;">
+              <div class="col-sm-6">
+                <a (click)="open(content2)" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i>
+                  Add</a>
+              </div>
+              <div style="width:fit-content" *ngFor="let dv of listDVCurent" >
+                <div>
+                <span class="btn bt-sm" style="background-color: darkgrey;">{{dv.loaiDv + "-" + dv.tenDv}}</span>
+                <button type="button" class="btn btn-sm btn-danger" aria-label="Close" (click)="removeDv(psd)">
+                  <span aria-hidden="true">
+                    ×
+                  </span>
+                </button>
+              </div></div>
+            </div>
+          </div>
+
+          <div class="card-footer">
+            <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Submit</button>
+            <button type="reset" class="btn btn-sm btn-danger"><i class="fa fa-ban"></i> Reset</button>
+            <button class="btn btn-sm btn-success" (click)="back()">Hủy</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!-- </div> -->
+  </div>
+</div>

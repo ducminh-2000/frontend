@@ -1,11 +1,16 @@
+import { PhongSuDung } from './PhongSuDung';
 import { NVToaNha } from './NVToaNha';
 import { CongTy } from './CongTy';
-export interface HopDong{
+import { ToaNha } from './ToaNha';
+import { DichVuSuDung } from './DichVuSuDung';
+export class HopDong{
   id?: number;
-  ngayTao?: String;
-  ngayHetHan?: String;
+  ngayTao?: Date;
+  ngayHetHan?: Date;
   ghiChu?: String;
   gia?: number;
   congTy?: CongTy;
-  nvToaNha?: NVToaNha;
+  toaNha?: ToaNha;
+  listPhongSuDung: PhongSuDung[];
+  listDVSuDung: DichVuSuDung[];
 }

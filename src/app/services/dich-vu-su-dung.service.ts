@@ -21,11 +21,11 @@ export class DichVuSuDungService {
   }
 
   getById(id: Number): Observable<DichVuSuDung>{
-    return this.httpClient.get(`${this.baseUrl}/${id}`);
+    return this.httpClient.get<DichVuSuDung>(`${this.baseUrl}/${id}`);
   }
 
   update(id: Number, dichVuSuDung: DichVuSuDung): Observable<DichVuSuDung>{
-    return this.httpClient.put(`${this.baseUrl}/${id}`, dichVuSuDung);
+    return this.httpClient.put<DichVuSuDung>(`${this.baseUrl}/${id}`, dichVuSuDung);
   }
 
   delete(id: Number): Observable<Object>{

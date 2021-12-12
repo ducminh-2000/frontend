@@ -18,10 +18,12 @@ export class BangluongComponent implements OnInit {
   start: String;
   end: String;
   month: String;
+  id: number;
   constructor(private service: TKLuongService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.idNv = parseInt(this.router.url.split('/')[2]);
+    this.id = parseInt(this.router.url.split('/')[5]);
     var data = new Date().getTime();
     var date = new Date(data);
     var day = date.getUTCDate().toString();
@@ -33,7 +35,7 @@ export class BangluongComponent implements OnInit {
   }
 
   private getLuong() {
-    this.service.getAllLuongByToaNha(this.idNv,this.start,this.end).subscribe((data) => {
+    this.service.getAllLuongByToaNha(this.idNv,this.start,this.end,this.id).subscribe((data) => {
       this.listTKluong = data;
     })
   }

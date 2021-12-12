@@ -13,8 +13,8 @@ export class TKLuongService {
 
   constructor(private httpCLient: HttpClient) { }
 
-  getAllLuongByToaNha(id: number, start: String, end: String): Observable<TKLuong[]> {
-    return this.httpCLient.get<TKLuong[]>(`${this.baseUrl}/luong/${start}&&${end}&&toanha=${id}`)
+  getAllLuongByToaNha(id: number, start: String, end: String, phong:number): Observable<TKLuong[]> {
+    return this.httpCLient.get<TKLuong[]>(`${this.baseUrl}/luong/${start}&&${end}&&toanha=${id}&&phongban=${phong}`)
   }
   getAllLuong(start: String, end: String): Observable<TKLuong[]>{
     return this.httpCLient.get<TKLuong[]>(`${this.baseUrl}/luong/${start}&&${end}`);

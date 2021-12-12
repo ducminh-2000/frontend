@@ -74,6 +74,11 @@ import { GhichucreateComponent } from './views/toanha/nhanvien/ghichucreate/ghic
 import { SwitchtoanhaComponent } from './views/toanha/bangluong/switchtoanha/switchtoanha.component';
 import { LuongdetailComponent } from './views/toanha/bangluong/luongdetail/luongdetail.component';
 import { LuongvitriComponent } from './views/toanha/bangluong/luongvitri/luongvitri.component';
+import { SwitchhopdongComponent } from './views/hopdong/switchhopdong/switchhopdong.component';
+import { CreatehopdongComponent } from './views/hopdong/createhopdong/createhopdong.component';
+import { CreatephongsudungComponent } from './views/toanha/phongsudung/createphongsudung/createphongsudung.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { UpdatehopdongComponent } from './views/hopdong/updatehopdong/updatehopdong.component';
 
 
 @NgModule({
@@ -94,6 +99,7 @@ import { LuongvitriComponent } from './views/toanha/bangluong/luongvitri/luongvi
     IconSetModule.forRoot(),
     HttpClientModule,
     FormsModule,
+    NgbModule,
   ],
   declarations: [
     AppComponent,
@@ -130,6 +136,10 @@ import { LuongvitriComponent } from './views/toanha/bangluong/luongvitri/luongvi
     SwitchtoanhaComponent,
     LuongdetailComponent,
     LuongvitriComponent,
+    SwitchhopdongComponent,
+    CreatehopdongComponent,
+    CreatephongsudungComponent,
+    UpdatehopdongComponent,
   ],
   providers: [
     {

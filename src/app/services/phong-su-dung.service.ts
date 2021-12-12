@@ -9,12 +9,16 @@ import { Observable } from 'rxjs';
 export class PhongSuDungService {
 
 
-  private baseUrl = "http://localhost:8088/PhongSuDung";
+  private baseUrl = "http://localhost:8088/phongsudung";
 
   constructor(private httpClient: HttpClient) { }
 
   getAll(): Observable<PhongSuDung[]>{
     return this.httpClient.get<PhongSuDung[]>(`${this.baseUrl}`);
+  }
+
+  getAllByToaNha(id:number): Observable<PhongSuDung[]>{
+    return this.httpClient.get<PhongSuDung[]>(`${this.baseUrl}/id=${id}`);
   }
 
   create(PhongSuDung: PhongSuDung): Observable<Object>{
