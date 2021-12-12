@@ -31,7 +31,7 @@
               <input type="date" id="input-normal" name="vonDieu" class="form-control" [(ngModel)]="nv.ngaySinh">
             </div>
           </div>
-          <div class="form-group row">
+          <!-- <div class="form-group row">
             <label class="col-sm-5 col-form-label" for="input-normal">Công ty</label>
             <div class="col-sm-6">
               <select [(ngModel)]="nv.congTy" [ngModelOptions]="{standalone: true}">
@@ -39,7 +39,7 @@
                 <option *ngFor="let ct of listCongTy" [ngValue]="ct">{{ct.tenCongTy}}</option>
               </select>
             </div>
-          </div>
+          </div> -->
           <div class="card-footer">
             <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Submit</button>
             <button type="reset" class="btn btn-sm btn-danger"><i class="fa fa-ban"></i> Reset</button>

@@ -3,7 +3,7 @@
     <!-- <div class="col-sm-6"> -->
     <div class="card">
       <div class="card-header">
-        <strong>Create Công Ty</strong>
+        <strong>Create Nhân viên tòa nhà</strong>
       </div>
       <div class="card-body">
         <form (ngSubmit)="onSubmit()" class="form-horizontal">
@@ -16,7 +16,7 @@
           <div class="form-group row">
             <label class="col-sm-5 col-form-label" for="input-normal">Ngày sinh</label>
             <div class="col-sm-6">
-              <input type="text" id="input-normal" name="maSoThue" class="form-control" [(ngModel)]="nhanvien.ngaySinh">
+              <input type="date" id="input-normal" name="maSoThue" class="form-control" [(ngModel)]="nhanvien.ngaySinh">
             </div>
           </div>
           <div class="form-group row">

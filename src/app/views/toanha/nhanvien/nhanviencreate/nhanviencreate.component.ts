@@ -52,7 +52,7 @@ export class NhanviencreateComponent implements OnInit {
     })
   }
   onSubmit(){
-    console.log(this.nhanvien.luongViTri)
+    console.log(this.nhanvien)
     this.service.create(this.nhanvien).subscribe((data) => {
       alert("Thêm thành công bản ghi");
       this.gotoList();
