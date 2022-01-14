@@ -79,6 +79,9 @@ import { CreatehopdongComponent } from './views/hopdong/createhopdong/createhopd
 import { CreatephongsudungComponent } from './views/toanha/phongsudung/createphongsudung/createphongsudung.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { UpdatehopdongComponent } from './views/hopdong/updatehopdong/updatehopdong.component';
+import { StockComponent } from './views/stock/stock.component';
+import { IndustryComponent } from './views/industry/industry.component';
+import { AdviseComponent } from './views/advise/advise.component';
 
 
 @NgModule({
@@ -140,6 +143,9 @@ import { UpdatehopdongComponent } from './views/hopdong/updatehopdong/updatehopd
     CreatehopdongComponent,
     CreatephongsudungComponent,
     UpdatehopdongComponent,
+    StockComponent,
+    IndustryComponent,
+    AdviseComponent,
   ],
   providers: [
     {

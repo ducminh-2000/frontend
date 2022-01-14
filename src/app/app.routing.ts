@@ -37,11 +37,14 @@ import { LuongdetailComponent } from './views/toanha/bangluong/luongdetail/luong
 import { SwitchhopdongComponent } from './views/hopdong/switchhopdong/switchhopdong.component';
 import { CreatehopdongComponent } from './views/hopdong/createhopdong/createhopdong.component';
 import { UpdatehopdongComponent } from './views/hopdong/updatehopdong/updatehopdong.component';
+import { StockComponent } from './views/stock/stock.component';
+import { AdviseComponent } from './views/advise/advise.component';
+import { IndustryComponent } from './views/industry/industry.component';
 
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'congty',
+    redirectTo: 'stock',
     pathMatch: 'full',
   },
   {
@@ -52,242 +55,31 @@ export const routes: Routes = [
     },
     children: [
       {
-        path: 'congty',
+        path: 'stock',
         data: {
-          title: 'CongTy'
+          title: 'Stock'
         },
         children: [
           {
             path: '',
             data: {
-              title: 'CongTy'
+              title: 'Stock'
             },
-            component: CongtyComponent,
+            component: AdviseComponent,
           },
           {
-            path: 'switch',
+            path: 'market',
             data: {
-              title: 'Chọn công ty'
+              title: 'Danh sách mã'
             },
-            component: SwitchComponent,
+            component: StockComponent,
           },
           {
-            path: ':id/nhanvien',
+            path: 'industry',
             data: {
-              title: 'Nhân viên công ty'
+              title: 'Danh sách ngành'
             },
-            component: NhanviencongtyComponent,
-          },
-          {
-            path: ':id/nhanvien/create',
-            data: {
-              title: 'create nhân viên công ty'
-            },
-            component: CreatenhanvienComponent,
-          },
-          {
-            path: ':id/nhanvien/update/:id',
-            data: {
-              title: 'Update nhân viên công ty'
-            },
-            component: UpdatenhanvienComponent,
-          },
-          {
-            path: 'create',
-            component: CreateComponent,
-            data: {
-              title: 'Create'
-            }
-          },
-          {
-            path: 'update/:id',
-            component: UpdateComponent,
-            data: {
-              title: 'Update'
-            }
-          }
-        ]
-      },
-      {
-        path: 'hopdong/switch',
-        component: SwitchhopdongComponent,
-        data: {
-          title: 'Hợp đồng'
-        }
-      },
-      {
-        path: 'hopdong/toanha/:id',
-        component: HopdongComponent,
-        data: {
-          title: 'Hợp đồng'
-        }
-      },
-      {
-        path: 'hopdong/toanha/:id/create/',
-        component: CreatehopdongComponent,
-        data: {
-          title: 'Create Hợp đồng'
-        }
-      },
-      {
-        path: 'hopdong/toanha/:id/update/:id',
-        component: UpdatehopdongComponent,
-        data: {
-          title: 'Update Hợp đồng'
-        }
-      },
-      {
-        path: 'toanha',
-        data: {
-          title: 'ToaNha'
-        },
-        children: [
-          {
-            path: '',
-            data: {
-              title: 'ToaNha'
-            },
-            component: ToanhaComponent,
-          },
-          {
-            path: 'create',
-            component: CreatetoanhaComponent,
-            data: {
-              title: 'Create Toà Nhà'
-            }
-          },
-          {
-            path: 'update/:id',
-            component: UpdatetoanhaComponent,
-            data: {
-              title: 'Update Tòa Nhà'
-            }
-          },
-          {
-            path: 'phong',
-            component: PhongComponent,
-            data: {
-              title: 'Phòng'
-            }
-          },
-          {
-            path: 'phong/create',
-            component: CreatephongComponent,
-            data: {
-              title: 'Phòng'
-            }
-          },
-          {
-            path: 'phong/update/:id',
-            component: UpdatephongComponent,
-            data: {
-              title: 'Phòng'
-            }
-          },
-          {
-            path: 'dichvu',
-            component: DichvuComponent,
-            data: {
-              title: 'Dịch Vụ'
-            }
-          },
-          {
-            path: 'dichvu/create',
-            component: CreatedichvuComponent,
-            data: {
-              title: 'Dịch Vụ'
-            }
-          },
-          {
-            path: 'dichvu/update/:id',
-            component: UpdatedichvuComponent,
-            data: {
-              title: 'Dịch Vụ'
-            }
-          },
-          {
-            path: 'nhanvien',
-            component: NhanvienComponent,
-            data: {
-              title: 'Nhân Viên Tòa Nhà'
-            },
-          },
-          {
-            path: 'nhanvien/create',
-            component: NhanviencreateComponent,
-            data: {
-              title: 'Create Nhân viên Tòa Nhà'
-            }
-          },
-          {
-            path: 'nhanvien/update/:id',
-            component: NhanvienupdateComponent,
-            data: {
-              title: 'Update Nhân Viên Tòa Nhà'
-            }
-          },
-          {
-            path: 'nhanvien/:id/ghichu',
-            component: GhichuComponent,
-            data: {
-              title: 'Ghi chu'
-            },
-          },
-          {
-            path: 'nhanvien/:id/ghichu/create',
-            component: GhichucreateComponent,
-            data: {
-              title: 'Ghi chu'
-            },
-          },
-          {
-            path: 'phongban',
-            component: PhongbanComponent,
-            data: {
-              title: 'Phòng ban'
-            },
-          },
-          {
-            path: 'phongban/create',
-            component: CreatephongbanComponent,
-            data: {
-              title: 'CreatePhòng ban'
-            },
-          },
-          {
-            path: 'phongban/update/:id',
-            component: UpdatephongbanComponent,
-            data: {
-              title: 'Update Phòng ban'
-            },
-          },
-          {
-            path: 'switch',
-            component: SwitchtoanhaComponent,
-            data: {
-              title: 'Chọn tòa nhà'
-            }
-          },
-          {
-            path: ':id/bangluong/phongban/:id',
-            component: BangluongComponent,
-            data: {
-              title: 'Bảng lương theo tòa nhà'
-            }
-          },
-          {
-            path: ':id/bangluong/:id',
-            component: LuongdetailComponent,
-            data: {
-              title: 'Chi tiết lương nhân viên'
-            }
-          },
-          {
-            path: 'dichvusudung',
-            component: DichvudasudungComponent,
-            data: {
-              title: 'Dịch vụ sử dụng'
-            }
+            component: IndustryComponent,
           },
         ]
       },
