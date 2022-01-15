@@ -1,20 +1,7 @@
 <div class="animated fadeIn">
-  <div class="row" style="display: block;">
+  <div class="row" style="display: block">
     <div class="card">
-      <div class="row">
-        <div class="card-body" style="display: flex;">
-          <div class="col-sm-6">
-            <Label for="search">Search</Label>
-            <input type="text" id="input-normal" name="search" class="form-control"
-              (input)="search($event.target.value)">
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-header">
-        <i class="fa fa-align-justify"></i> Danh Sách Mã
-      </div>
+      <div class="card-header">Danh Sách Mã</div>
       <div class="card-body">
         <table class="table">
           <thead>
@@ -41,47 +28,27 @@
           </thead>
           <tbody class="th-class">
             <tr *ngFor="let stock of listStock">
-              <td>{{stock.id}}</td>
-              <td>{{stock.mack}}</td>
-              <td>{{stock.ten_cty}}</td>
-              <td>{{stock.pe2019}}</td>
-              <td>{{stock.pe2020}}</td>
-              <td>{{stock.pe2021}}</td>
-              <td>{{stock.ps2019}}</td>
-              <td>{{stock.ps2020}}</td>
-              <td>{{stock.ps2021}}</td>
-              <td>{{stock.eps2019}}</td>
-              <td>{{stock.eps2020}}</td>
-              <td>{{stock.eps2021}}</td>
-              <td>{{stock.roe2019}}</td>
-              <td>{{stock.roe2020}}</td>
-              <td>{{stock.roe2021}}</td>
-              <td>{{stock.roa2019}}</td>
-              <td>{{stock.roa2020}}</td>
-              <td>{{stock.roa2021}}</td>
+              <td>{{ stock.id }}</td>
+              <td>{{ stock.mack }}</td>
+              <td>{{ stock.ten_cty }}</td>
+              <td>{{ stock.pe2019 }}</td>
+              <td>{{ stock.pe2020 }}</td>
+              <td>{{ stock.pe2021 }}</td>
+              <td>{{ stock.ps2019 }}</td>
+              <td>{{ stock.ps2020 }}</td>
+              <td>{{ stock.ps2021 }}</td>
+              <td>{{ stock.eps2019 }}</td>
+              <td>{{ stock.eps2020 }}</td>
+              <td>{{ stock.eps2021 }}</td>
+              <td>{{ stock.roe2019 }}</td>
+              <td>{{ stock.roe2020 }}</td>
+              <td>{{ stock.roe2021 }}</td>
+              <td>{{ stock.roa2019 }}</td>
+              <td>{{ stock.roa2020 }}</td>
+              <td>{{ stock.roa2021 }}</td>
             </tr>
           </tbody>
         </table>
-        <ul class="pagination">
-          <li class="page-item"><a class="page-link" (click)="firstPage()">Đầu</a></li>
-          <li class="page-item"><a class="page-link" (click)="previousPage()">Trang trước</a></li>
-          <li class="page-item col-md-1 col-2  px-0">
-            <div class="input-group">
-              <input type="number" min="1" [max]="totalPagination" class="form-control text-right rounded-0"
-                     placeholder="2" aria-label="Username"
-                     aria-describedby="basic-addon1" [value]="indexPagination"
-                     (change)="indexPaginationChage($event.target.value)">
-              <div class="input-group-prepend">
-                <span class="input-group-text" id="basic-addon1">{{totalPagination}}</span>
-              </div>
-            </div>
-          </li>
-          <!-- <li class="page-item">
-            <button class="btn btn-primary rounded-0" (click)="findPaginnation()">Đi</button>
-          </li> -->
-          <li class="page-item"><a class="page-link" (click)="nextPage()">Trang kế</a></li>
-          <li class="page-item"><a class="page-link" (click)="lastPage()">Cuối</a></li>
-        </ul>
       </div>
     </div>
   </div>

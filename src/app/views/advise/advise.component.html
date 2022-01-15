@@ -1,5 +1,5 @@
 <div class="animated fadeIn">
-  <div class="row" style="display: block;">
+  <div class="row" style="display: block">
     <!-- <div class="col-sm-6"> -->
     <div class="card">
       <div class="card-header">
@@ -8,36 +8,65 @@
       <div class="card-body">
         <form (ngSubmit)="onSubmit()" class="form-horizontal">
           <div class="form-group row">
-            <label class="col-sm-5 col-form-label" for="input-normal">Ngành</label>
-            <div class="col-sm-6">
-              <select (change)="getStock($event.target.value)">
-                <option>Ngành</option>
-                <option *ngFor="let industry of listIndustry" value={{industry.id}}>{{industry.ten_nganh}}</option>
-              </select>
-            </div>
+            <label class="col-sm-5 col-form-label" for="input-normal"
+              >Ngành</label
+            >
+            <select
+              (change)="getStock($event.target.value)"
+              class="form-select"
+              aria-label="Default select example"
+            >
+              <option selected>Chọn ngành</option>
+              <option
+                *ngFor="let industry of listIndustry"
+                value="{{ industry.id }}"
+              >
+                {{ industry.ten_nganh }}
+              </option>
+            </select>
           </div>
           <div class="form-group row" *ngIf="listStock != null">
-            <label class="col-sm-5 col-form-label" for="input-normal">Mã chứng khoán</label>
-            <div class="col-sm-6">
-              <select [(ngModel)]="stock" [ngModelOptions]="{standalone: true}">
-                <option *ngFor="let stock of listStock" [ngValue]="stock">{{stock.mack}}</option>
-              </select>
-            </div>
+            <label class="col-sm-5 col-form-label" for="input-normal"
+              >Mã chứng khoán</label
+            >
+            <!-- <div class="col-sm-6"> -->
+            <select
+              [(ngModel)]="stock"
+              [ngModelOptions]="{ standalone: true }"
+              class="form-select"
+              aria-label="Default select example"
+            >
+              <option>Chọn mã chứng khoán</option>
+              <option *ngFor="let stock of listStock" [ngValue]="stock">
+                {{ stock.mack }}
+              </option>
+            </select>
+            <!-- </div> -->
           </div>
           <div class="form-group row">
-            <label class="col-sm-5 col-form-label" for="input-normal">Năm hoàn vốn</label>
+            <label class="col-sm-5 col-form-label" for="input-normal"
+              >Năm hoàn vốn</label
+            >
             <div class="col-sm-6">
-              <input type="text" id="input-normal" name="maSoThue" class="form-control" [(ngModel)]="namHoaVon">
+              <input
+                type="text"
+                id="input-normal"
+                name="maSoThue"
+                class="form-control"
+                [(ngModel)]="namHoaVon"
+              />
             </div>
           </div>
           <div class="card-footer">
-            <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Submit</button>
-            <button type="reset" class="btn btn-sm btn-danger"><i class="fa fa-ban"></i> Reset</button>
-            <!-- <button class="btn btn-sm btn-success" (click)="back()">Hủy</button> -->
+            <button type="submit" class="btn btn-sm btn-primary">
+              <i class="fa fa-dot-circle-o"></i> Submit
+            </button>
+            <button type="reset" class="btn btn-sm btn-danger">
+              <i class="fa fa-ban"></i> Reset
+            </button>
           </div>
         </form>
       </div>
     </div>
-    <!-- </div> -->
   </div>
 </div>
