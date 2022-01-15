@@ -12,9 +12,10 @@
               >Ngành</label
             >
             <select
-              (change)="getStock($event.target.value)"
+              [(ngModel)]="industryId"
+              name="industry"
+              (change)="onChangeIndustry($event.target.value)"
               class="form-select"
-              aria-label="Default select example"
             >
               <option selected>Chọn ngành</option>
               <option
@@ -29,9 +30,9 @@
             <label class="col-sm-5 col-form-label" for="input-normal"
               >Mã chứng khoán</label
             >
-            <!-- <div class="col-sm-6"> -->
             <select
               [(ngModel)]="stock"
+              name="stock"
               [ngModelOptions]="{ standalone: true }"
               class="form-select"
               aria-label="Default select example"
@@ -41,7 +42,6 @@
                 {{ stock.mack }}
               </option>
             </select>
-            <!-- </div> -->
           </div>
           <div class="form-group row">
             <label class="col-sm-5 col-form-label" for="input-normal"
@@ -53,7 +53,7 @@
                 id="input-normal"
                 name="maSoThue"
                 class="form-control"
-                [(ngModel)]="namHoaVon"
+                [(ngModel)]="pe"
               />
             </div>
           </div>
