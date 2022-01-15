@@ -26,7 +26,7 @@
               </option>
             </select>
           </div>
-          <div class="form-group row" *ngIf="listStock != null">
+          <div class="form-group row" *ngIf="listStockChange != null">
             <label class="col-sm-5 col-form-label" for="input-normal"
               >Mã chứng khoán</label
             >
@@ -38,7 +38,7 @@
               aria-label="Default select example"
             >
               <option>Chọn mã chứng khoán</option>
-              <option *ngFor="let stock of listStock" [ngValue]="stock">
+              <option *ngFor="let stock of listStockChange" [ngValue]="stock">
                 {{ stock.mack }}
               </option>
             </select>
