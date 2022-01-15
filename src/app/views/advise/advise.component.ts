@@ -39,6 +39,8 @@ export class AdviseComponent implements OnInit {
   }
 
   onSubmit() {
+    console.log(this.stock, this.industryId);
+
     if (this.stock && this.stock.id) {
       this.http
         .post("http://localhost:5000/stock/checkStock", {

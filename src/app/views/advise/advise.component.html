@@ -1,6 +1,5 @@
 <div class="animated fadeIn">
   <div class="row" style="display: block">
-    <!-- <div class="col-sm-6"> -->
     <div class="card">
       <div class="card-header">
         <strong>Tư vấn</strong>
@@ -26,19 +25,13 @@
               </option>
             </select>
           </div>
-          <div class="form-group row" *ngIf="listStockChange != null">
+          <div class="form-group row">
             <label class="col-sm-5 col-form-label" for="input-normal"
               >Mã chứng khoán</label
             >
-            <select
-              [(ngModel)]="stock"
-              name="stock"
-              [ngModelOptions]="{ standalone: true }"
-              class="form-select"
-              aria-label="Default select example"
-            >
+            <select [(ngModel)]="stock" name="stock" class="form-select">
               <option>Chọn mã chứng khoán</option>
-              <option *ngFor="let stock of listStockChange" [ngValue]="stock">
+              <option *ngFor="let stock of listStock" [ngValue]="stock">
                 {{ stock.mack }}
               </option>
             </select>
